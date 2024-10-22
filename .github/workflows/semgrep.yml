@@ -23,3 +23,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: semgrep ci
+export default {
+  async fetch(request, env) {
+    const result = await env.WORKER_B.add(1, 2);
+    return new Response(result);
+  }
+}
